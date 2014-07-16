@@ -13,18 +13,18 @@ import java.util.List;
  */
 public class ElementFinder {
 
-    private ElementFinder() {
-
+    public ElementFinder () {
+        super();
     }
 
-    private WebElement getElementByCSS(final String locator, final WebDriver webDriver) {
+    public WebElement getElementByCSS(final String locator, final WebDriver webDriver) {
         ExpectedConditions expectedConditions = null;
         WebElement element = (new WebDriverWait(webDriver, 10, 3000))
                 .until(expectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
         return element;
     }
 
-    private List<WebElement> getElementsListByCSS(final String locator, final WebDriver webDriver) {
+    public List<WebElement> getElementsListByCSS(final String locator, final WebDriver webDriver) {
         ExpectedConditions expectedConditions = null;
         List<WebElement> elements = (new WebDriverWait(webDriver, 10, 3000))
                 .until(expectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(locator)));

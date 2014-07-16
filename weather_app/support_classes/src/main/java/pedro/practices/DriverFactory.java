@@ -24,8 +24,8 @@ public class DriverFactory {
         if ("chrome".equals(browserType)) {
             webDriver = new ChromeDriver();
         }
-        webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
         webDriver.manage().deleteAllCookies();
         return webDriver;

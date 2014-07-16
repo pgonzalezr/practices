@@ -85,6 +85,8 @@
                     <systemPropertyVariables>
                         <page.url>${page.url}</page.url>
                         <browser>${browser}</browser>
+                        <city>${city}</city>
+                        <units>${units}</units>
                     </systemPropertyVariables>
 
                 </configuration>
@@ -95,6 +97,8 @@
     <properties>
         <page.url>http://openweathermap.org/</page.url>
         <browser>firefox</browser>
+        <city>London</city>
+        <units>metric</units>
     </properties>
 
 

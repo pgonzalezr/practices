@@ -1,0 +1,13 @@
+.idea
+target
+.project
+.settings
+.classpath
+.pmd
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.checkstyle
+.classpath
+.project

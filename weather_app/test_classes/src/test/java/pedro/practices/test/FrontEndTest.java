@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pedro.practices.DriverFactory;
 import pedro.practices.ElementFinder;
+import pedro.practices.HomePage;
 
 import java.net.MalformedURLException;
 
@@ -12,16 +13,15 @@ import java.net.MalformedURLException;
  * Created by pgonzalez on 7/16/14.
  */
 public class FrontEndTest {
-    // Element locators:
-    private static final String searchBox = "#nav-search.pull-right.show.hidden";
-    private static final String searchTrigger = "span.input-group-btn button.btn.btn-default";
 
     private static WebDriver webDriver = null;
     private static ElementFinder elementFinder = null;
+    private static HomePage homePage = null;
 
     public FrontEndTest() throws MalformedURLException {
         webDriver = DriverFactory.getDriver();
         elementFinder = new ElementFinder();
+        homePage = new HomePage();
     }
 
     @After
@@ -36,18 +36,18 @@ public class FrontEndTest {
     }
 
     private void goToWeatherSearch() {
-        final String weatherSearchUrl = System.getProperty("page.url");
-        webDriver.navigate().to(weatherSearchUrl);
+
+        webDriver.navigate().to(System.getProperty("page.url"));
     }
 
     private void searchForCity() throws InterruptedException {
         final String city = System.getProperty("city");
-        elementFinder.getElementByCSS(searchBox, webDriver).click();
+        elementFinder.getElementByCSS(homePage.searchBox, webDriver).click();
         Thread.sleep(1000);
-        elementFinder.getElementByCSS(searchBox, webDriver).click();
-        elementFinder.getElementByCSS(searchBox, webDriver).clear();
-        elementFinder.getElementByCSS(searchBox, webDriver).sendKeys(city);
-        elementFinder.getElementByCSS(searchTrigger, webDriver).click();
+        elementFinder.getElementByCSS(homePage.searchBox, webDriver).click();
+        elementFinder.getElementByCSS(homePage.searchBox, webDriver).clear();
+        elementFinder.getElementByCSS(homePage.searchBox, webDriver).sendKeys(city);
+        elementFinder.getElementByCSS(homePage.searchButton, webDriver).click();
     }
 
 }

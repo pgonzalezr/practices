@@ -30,4 +30,18 @@ public class ElementFinder {
                 .until(expectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(locator)));
         return elements;
     }
+
+    public WebElement getElementByXpath(final String locator, final WebDriver webDriver) {
+        ExpectedConditions expectedConditions = null;
+        WebElement element = (new WebDriverWait(webDriver, 10, 3000))
+                .until(expectedConditions.presenceOfElementLocated(By.xpath(locator)));
+        return element;
+    }
+
+    public List<WebElement> getElementsListByXpath(final String locator, final WebDriver webDriver) {
+        ExpectedConditions expectedConditions = null;
+        List<WebElement> elements = (new WebDriverWait(webDriver, 10, 3000))
+                .until(expectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
+        return elements;
+    }
 }
